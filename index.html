@@ -4,21 +4,290 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/ee979af6a2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="icon" href="assets/icono-vector-alcancia.jpg">
  <link rel="stylesheet" href="css/style.css">
-    <title>Document</title>
+    <title>Ahorradas</title>
 </head>
 <body>
     
+                                 <!-- HEADER -->
+                                 <header">
+                                 <nav class="navbar navbar-expand-lg mi-estilo-nav"  style="background-color: #23a186;" >
+                                     <div class="container-fluid">
+                                        <a class="navbar-brand" href="#"> <i class="fa-solid fa-wallet"></i> AhorrADAs </a>   
+                                       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                                         <span class="navbar-toggler-icon"></span>
+                                       </button>
+                                       <div class="collapse navbar-collapse nav-inferior" id="navbarNav">         
+                                         <ul class="navbar-nav">
+                                           <li class="nav-item">
+                                          <a id="btn-balance" class="nav-link active" aria-current="page" href="#">  <img src="assets/graph-up-arrow.svg" alt="">Balance</a>
+                                           </li>
+                             
+                                           <li class="nav-item">
+                                         <a  id="btn-categorias" class="nav-link" href="#"> <img src="assets/tag-fill.svg" alt="" > Categorías</a>
+                                           </li>
+                                 <li class="nav-item">
+                                             <a  id="btn-reportes" class="nav-link" href="#"><img src="assets/" alt="" >Reportes</a>
+                                           </li>
+                                             </ul>
+                                       </div>
+                                     </div>
+                                   </nav>
+                                 </header>
+
+                                <!-- SECCION BALANCE -->
+
+                                <main>
+                                    <section id="balance"  class="container">
+                                         <div class="row">
+                                            <div class="col-sm-12 col-md-4 caja-balance-filtros">
+                                                              <!-- ------------COTENEDOR BALANCE--------- -->
+                                               <div class="row">
+                                                 <div class="col-sm-12 "  > 
+                                                   <div class="contenedor-card" >
+                                                   <div class="card col-sm-12" >
+                                                     <!-- style="width: 18rem; -->
+                                                     <h1 class="titulo-balance">Balance</h1>
+                                                       <div class="caja-ganancias">
+                                                         <div>Ganancias</div>
+                                                         <div>+$0</div>
+                                                       </div>
+                                                       <div class="caja-gastos">
+                                                         <div>Gastos</div>
+                                                         <div>-$0</div>
+                                                       </div>
+                                                       <div class="caja-total">
+                                                         <div>Total</div>
+                                                         <div>$0</div>
+                                                       </div>
+                                                       <!-- <div class="card-body">
+                                                        
+                                                       </div> -->
+                                                     </div>
+                                                   </div>
+                                               </div>
+                                             </div>
+
+         <!-- --------------------------CONTENEDOR   FILTROS------------ -->
+         <div class="row">
+            <div class="col-sm-12">
+                <div class="contenedor-card">
+                     <div class="card"  height: 25rem;>
+                     <!-- style="width: 18rem; -->
+               <div class="parte-superior-filtros">
+         <div> <h2 class="titulo-filtros">Filtros</h2></div>
+         <div id="ocultar-filtros"> 
+          <a href="">Ocultar filtros</a> 
+         </div>
+               </div>
+
+                   <div class="card-body " id="caja-filtros">
+                      <div class="caja-tipo">
+                            <label for="">Tipo</label>
+                        <div>
+                          <div>
+                            <select name="" id="">
+                              <option value="">Todos</option>
+                              <option value="">Gasto</option>
+                              <option value="">Ganancias</option>
+                            </select>
+                          </div>
+                        </div>
+                    
+                        <div class="caja-categorias">
+                              <label for="">Categoria</label>
+                              <div>
+                                <div>
+                                  <select  id="">
+                                    <option value="">Todas</option>
+                                    <option value="">Comida</option>
+                                    <option value="">Servicios</option>
+                                    <option value="">Salidas</option>
+                                    <option value="">Educacion</option>
+                                    <option value="">Transporte</option>
+                                    <option value="">Trabajo</option>
+                                  </select>
+                                </div>
+                              </div>
+                        </div>
+
+                        <div class="caja-desde">
+                          <label for="">Desde</label>
+                          <div>
+                            <div>
+                              <input type="date" name="" id="filtro-fecha">
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="caja-ordenar">
+                           <label for="">Ordenar por</label>
+                           <div>
+                            <div>
+                              <select name="" id="">
+                                <option value="">Mas reciente</option>
+                                <option value="">Menos reciente</option>
+                                <option value="">Mayor monto</option>
+                                <option value="">Menor monto</option>
+                                <option value="">A/Z</option>
+                                <option value="">Z/A</option>
+
+                              </select>
+                            </div>
+                           </div>
+                        </div>
+
+                      </div>
+
+                    </div>
+                  </div>
+                </div> 
+            </div>
+          </div>
+         </div >
+                      <!-- ------------------ CONTENEDOR OPERACIONES----------------- -->
+         <div class="container" style="background-color:#e5e4e9;" >
+          <div class="col-sm-12 col-md-10 caja-operaciones" style="background-color: rgb(255, 255, 255); height: 470px; border-radius: 5px;" >
+            <div class="columna" > 
+              <div><h3  class="titulo-operaciones" style="color: rgb(68, 67, 67); font-weight: 700; font-size: x-large;" >Operaciones </h3> </div>       
+             <div class="btn"> 
+              <li class="button is-primary"  type="button" class="button-operacion" id="btn-nueva-operacion">
+                 <a href="#" id="con-operaciones" style="color:white ;">
+             + Nueva Operacion</li>  </a>
+         </div>
+       </div>
+           
+           <div class="caja-interior"> 
+            <figure class="imagen-billetera">
+               <img src="assets/undraw_wallet_aym5.png.png" alt="" >
+            </figure>
+            <h3>Sin resultados</h3>
+            <p>Cambia los filtros o agrega operaciones</p>
+              </div>
+          <!-- <div class="contenedor-con-operaciones oculto" id="con-operaciones">           
+              <div class="containerrrr">
+                <div class="align-items-start">
+                  <div class="col-3">
+                    <h6>Categoria</h6>
+                  </div> 
+                  <div class="col-2">
+                    <h6>Fecha</h6>
+                  </div>
+                  <div class="col-2">
+                    <h6>Monto</h6>
+                  </div>
+                  <div class="col-2">
+                   <h6 class="">Acciones</h6>
+                  </div>
+                </div> -->
+                <div class="operaciones-columna" id="operaciones">
+                   <!-- div vacio para que se vaya mostrando la soperaciones guardadas en js dentro del array operaciones -->
+                </div>
+            
+          </div>
+         </div>
+       </div>
+ </section>
+
+                     <!------------------SECCION NUEVA OPERACION-------------- -->
+
+<section class="  oculto container  section mt-5"   id="con-operaciones-seccion" >
+ <div class="row contenedor-compartido">
+  <div class=" col-8 caja-compartida" style="background-color: pink;">
+  <div class="contenedor-con-operaciones " id="">               
+          <h6>Nueva Operacion</h6>
+          <h2>Descripcion</h2>
+          <input class="input is-link" type="text">
+          <h2>Monto</h2>
+          <input class="input is-link" type="number" >
+          
+          <h2>Tipo</h2>
+          <div class="select is-link">
+            <select>
+              <option>Gasto</option>
+              <option>Ganancia</option>
+            </select>
+          </div>
+          
+
+        <div >
+          <h6>Categoria</h6>
+          <div class="select is-info col-12">
+            <select class="col-sm-12">
+              <option>Comidas</option>
+              <option>Servicios</option>
+              <option>Salidas</option>
+              <option>Educacion</option>
+              <option>Trasporte</option>
+              <option>Trabajo</option>
+            </select>
+          </div>
+
+
+          <div class="col-sm-12">
+            <h6>Fecha</h6>
+            <input class="input is-link" type="date" placeholder="Link input">
+          </div>
+
+
+  <div class="buttons">
+    <button class="button">Default</button>
+    <button class="button is-success">Success</button>
+  </div>
+
+
+
+    </div>
+  </div>
+  
+  </section>
+  
+  
+  
+  
+
+           <!---------------- SECCION CATEGORIAS--------------------->
+<section  class=" container seccion mt-5 categorias oculto"  id="categorias" >
+   <div class=" row contenedor-compartido "  >
+    <div class=" col-8 caja-compartida" style="background-color: pink;">
+     <h2>Categorias</h2>
+     <label for=""> Nombre</label>
+     <div class="los-dos">
+  <div class= " col-10 contenedor-nueva-categoria">
+    <input type="text" class="input" id="categoria-input">
+  </div>
+  <div>
+    <button id="agregar-categoria-boton">Agregar</button> 
+  </div>
+  </div>
+</div>
+ </div>
+<div class=" mt-6"> 
+</div>
+ </section>
+
+                             <!----------- SECCION reportes----------- -->
+
+<section class=" container section mt-5 oculto" id="reportes"  >
+  <div class=" row  contenedor-compartido" >
+    <div class=" col-8 caja-compartida" style="background-color: pink;">
+        <h2>Reportes</h2>
+</div>
+        </div>
+</section>
+
+</main>
 
 
 
 
 
 
-
-
-
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <script src="js/app.js"></script>
 </body>
 </html>
