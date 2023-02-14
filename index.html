@@ -15,23 +15,23 @@
     
                                  <!-- HEADER -->
                                  <header">
-                                 <nav class="navbar navbar-expand-lg mi-estilo-nav"  style="background-color: #23a186;" >
+                                 <nav class="navbar navbar-expand-lg mi-estilo-nav"  style="background-color: #39b99e;" >
                                      <div class="container-fluid">
                                         <a class="navbar-brand" href="#"> <i class="fa-solid fa-wallet"></i> AhorrADAs </a>   
                                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                                          <span class="navbar-toggler-icon"></span>
                                        </button>
                                        <div class="collapse navbar-collapse nav-inferior" id="navbarNav">         
-                                         <ul class="navbar-nav">
+                                         <ul class="navbar-nav" >
                                            <li class="nav-item">
-                                          <a id="btn-balance" class="nav-link active" aria-current="page" href="#">  <img src="assets/graph-up-arrow.svg" alt="">Balance</a>
+                                          <a id="btn-balance" class="nav-link" aria-current="page" href="#">  <img src="assets/graph-up-arrow.svg" alt="">Balance</a>
                                            </li>
                              
                                            <li class="nav-item">
                                          <a  id="btn-categorias" class="nav-link" href="#"> <img src="assets/tag-fill.svg" alt="" > Categorías</a>
                                            </li>
                                  <li class="nav-item">
-                                             <a  id="btn-reportes" class="nav-link" href="#"><img src="assets/" alt="" >Reportes</a>
+                                             <a  id="btn-reportes" class="nav-link" href="#"><img src="assets/pie-chart.svg " style="color:white" alt="" >Reportes</a>
                                            </li>
                                              </ul>
                                        </div>
@@ -76,7 +76,7 @@
          <div class="row">
             <div class="col-sm-12">
                 <div class="contenedor-card">
-                     <div class="card"  height: 25rem;>
+                     <div class="card"  style= "height: 23rem;" >
                      <!-- style="width: 18rem; -->
                <div class="parte-superior-filtros">
          <div> <h2 class="titulo-filtros">Filtros</h2></div>
@@ -89,29 +89,31 @@
                       <div class="caja-tipo">
                             <label for="">Tipo</label>
                         <div>
-                          <div>
-                            <select name="" id="">
-                              <option value="">Todos</option>
-                              <option value="">Gasto</option>
-                              <option value="">Ganancias</option>
-                            </select>
+                          <div class="">
+                            <div class="select is-link">
+                              <select>
+                                <option>Gasto</option>
+                                <option>Ganancia</option>
+                              </select>
+                            </div>
                           </div>
                         </div>
                     
                         <div class="caja-categorias">
                               <label for="">Categoria</label>
                               <div>
-                                <div>
-                                  <select  id="">
-                                    <option value="">Todas</option>
-                                    <option value="">Comida</option>
-                                    <option value="">Servicios</option>
-                                    <option value="">Salidas</option>
-                                    <option value="">Educacion</option>
-                                    <option value="">Transporte</option>
-                                    <option value="">Trabajo</option>
-                                  </select>
-                                </div>
+
+                                  <div class="select is-link">
+                                    <select>
+                                      <option>Todas</option>
+                                      <option>Comida</option>
+                                      <option value="">Servicios</option>
+                                      <option value="">Salidas</option>
+                                      <option value="">Educacion</option>
+                                      <option value="">Transporte</option>
+                                      <option value="">Trabajo</option>
+                                    </select>
+                                  </div>
                               </div>
                         </div>
 
@@ -119,12 +121,14 @@
                           <label for="">Desde</label>
                           <div>
                             <div>
-                              <input type="date" name="" id="filtro-fecha">
+                              <form >
+                                <input id="input-date-uno" class="input is-info" type="date" placeholder="Info input">
+                            </form>
                             </div>
                           </div>
                         </div>
 
-                        <div class="caja-ordenar">
+                        <div class=" select is-link  caja-ordenar">
                            <label for="">Ordenar por</label>
                            <div>
                             <div>
@@ -135,7 +139,6 @@
                                 <option value="">Menor monto</option>
                                 <option value="">A/Z</option>
                                 <option value="">Z/A</option>
-
                               </select>
                             </div>
                            </div>
@@ -197,10 +200,10 @@
 
 <section class="  oculto container  section mt-5"   id="con-operaciones-seccion" >
  <div class="row contenedor-compartido">
-  <div class=" col-8 caja-compartida" style="background-color: pink;">
+  <div class=" col-8 caja-compartida" style="background-color: rgb(255, 255, 255);">
   <div class="contenedor-con-operaciones " id="">               
-          <h6>Nueva Operacion</h6>
-          <h2>Descripcion</h2>
+    <p class="subtitle is-5">Nueva operación</p>
+    <h2>Descripcion</h2>
           <input class="input is-link" type="text">
           <h2>Monto</h2>
           <input class="input is-link" type="number" >
@@ -230,39 +233,39 @@
 
           <div class="col-sm-12">
             <h6>Fecha</h6>
-            <input class="input is-link" type="date" placeholder="Link input">
+            <form >
+            <input id="input-date" class="input is-link" type="date" placeholder="Link input">
+          </form>
           </div>
 
 
   <div class="buttons">
-    <button class="button">Default</button>
-    <button class="button is-success">Success</button>
+    <button class="button">Cancelar</button>
+    <button class="button is-success">Aceptar</button>
   </div>
 
 
 
     </div>
   </div>
-  
+
   </section>
   
   
-  
-  
-
            <!---------------- SECCION CATEGORIAS--------------------->
 <section  class=" container seccion mt-5 categorias oculto"  id="categorias" >
    <div class=" row contenedor-compartido "  >
-    <div class=" col-8 caja-compartida" style="background-color: pink;">
-     <h2>Categorias</h2>
+    <div class=" col-8 caja-compartida" style="background-color: rgb(255, 255, 255);">
+        <p class="title is-3">Categorias</p>
      <label for=""> Nombre</label>
      <div class="los-dos">
   <div class= " col-10 contenedor-nueva-categoria">
-    <input type="text" class="input" id="categoria-input">
+    <div class="control">
+        <input class="input" type="text" >
+      </div>
   </div>
-  <div>
-    <button id="agregar-categoria-boton">Agregar</button> 
-  </div>
+   <button class="button is-success">Agregar</button>
+ 
   </div>
 </div>
  </div>
@@ -273,9 +276,14 @@
                              <!----------- SECCION reportes----------- -->
 
 <section class=" container section mt-5 oculto" id="reportes"  >
-  <div class=" row  contenedor-compartido" >
-    <div class=" col-8 caja-compartida" style="background-color: pink;">
-        <h2>Reportes</h2>
+  <div class="row  contenedor-compartido" >
+    <div class=" col-8 caja-compartida " style="background-color: rgb(250, 250, 250);" >
+        <h1 class="title">Reportes</h1>
+        <div class="interior-reportes col-sm-10" style="background-color: rgb(255, 255, 255); " >
+        <img src="assets/chart (1).svg" alt="">
+        <h5 class="title is-5">Operaciones insuficientes</h5>
+        <h6 class="subtitle is-6"> Prueba agregando más operaciones</h6>
+         </div>
 </div>
         </div>
 </section>
