@@ -54,15 +54,15 @@
                   <div class="card col-sm-12">
                     <h1 class="titulo-balance">Balance</h1>
                     <div class="caja-ganancias">
-                      <p>Ganancias</p>
+                      <p class="is-size-6">Ganancias</p>
                       <div class="has-text-success">+$0</div>
                     </div>
                     <div class="caja-gastos">
-                      <p>Gastos</dp>
+                      <p class="is-size-5" >Gastos</dp>
                       <div class="has-text-danger">-$0</div>
                     </div>
                     <div class="caja-total">
-                      <p>Total</p>
+                      <p class="is-size-4">Total</p>
                       <div class="has-text-weight-bold">$0</div>
                     </div>
                     <!-- <div class="card-body"></div> -->                                                                                                       
@@ -86,57 +86,57 @@
                     </div>
                     <div class="card-body  " id="caja-filtros">
                       <div class="caja-filtros">
-                        <label for="">Tipo</label>
+                        <label for="" class="has-text-weight-bold">Tipo</label>
                         <div>
                           <div>
                             <div class="select is-link contenedor-filtros">
                               <select class="contenedor-filtros">
-                                <option>Gasto</option>
-                                <option>Ganancia</option>
+                                <option value="gasto">Gasto</option>
+                                <option value="ganancia">Ganancia</option>
                               </select>
                             </div>
                           </div>
                         </div>
 
                         <div class="caja-categorias contenedor-filtros">
-                          <label for="">Categoria</label>
+                          <label for="" class="has-text-weight-bold" >Categoria</label>
                           <div>
                             <div class="select is-link contenedor-filtros">
                               <select class="contenedor-filtros">
                                 <option>Todas</option>
                                 <option>Comida</option>
-                                <option value="">Servicios</option>
-                                <option value="">Salidas</option>
-                                <option value="">Educacion</option>
-                                <option value="">Transporte</option>
-                                <option value="">Trabajo</option>
+                                <option value="servicios">Servicios</option>
+                                <option value="salidas">Salidas</option>
+                                <option value="educacion">Educacion</option>
+                                <option value="transporte">Transporte</option>
+                                <option value="trabajo">Trabajo</option>
                               </select>
                             </div>
                           </div>
                         </div>
 
                         <div class="caja-desde">
-                          <label for="">Desde</label>
+                          <label for="" class="has-text-weight-bold">Desde</label>
                           <div>
                             <div>
-                              <form>
-                                <input id="input-date-uno" class="input is-info" type="date" placeholder="Info input">
+                              <form >
+                                <input id="input-date-uno" class="input is-info" type="date" >
                               </form>
                             </div>
                           </div>
                         </div>
 
                         <div>
-                          <label for="">Ordenar por</label>
+                          <label for=""class="has-text-weight-bold" >Ordenar por</label>
                           <div>
                             <div class=" select is-link  caja-ordenar contenedor-filtros">
-                              <select class="contenedor-filtros" id="">
-                                <option value="">Mas reciente</option>
-                                <option value="">Menos reciente</option>
-                                <option value="">Mayor monto</option>
-                                <option value="">Menor monto</option>
-                                <option value="">A/Z</option>
-                                <option value="">Z/A</option>
+                              <select class="contenedor-filtros" id="filtros">
+                                <option value="reciente">Mas reciente</option>
+                                <option value="menosReciente">Menos reciente</option>
+                                <option value="mayorMonto">Mayor monto</option>
+                                <option value="menorMonto">Menor monto</option>
+                                <option value="a/z">A/Z</option>
+                                <option value="z/a">Z/A</option>
                               </select>
                             </div>
                           </div>
@@ -150,7 +150,7 @@
           </div>
           <!-- ------------------ CONTENEDOR OPERACIONES----------------- -->
           <div class="container" style="background-color:#e5e4e9;">
-            <div class="col-sm-12 col-md-10 caja-operaciones"
+            <div class="col-sm-12 col-md-10 caja-operaciones "
               style="background-color: rgb(255, 255, 255); height: 470px; border-radius: 5px;">
               <div class="columna">
                 <div>
@@ -164,32 +164,45 @@
                   </li> </a>
                 </div>
               </div>
-
               <div class="caja-interior ">
-                <figure class="imagen-billetera">
-                  <img src="assets/undraw_wallet_aym5.png.png" alt="">
+                 <div class="operaciones-imagen">
+                <figure class="imagen-billetera ">
+                  <img src="assets/undraw_wallet_aym5.png.png" alt="" class="">
                 </figure>
+              
                 <h3>Sin resultados</h3>
                 <p>Cambia los filtros o agrega operaciones</p>
+                </div>
               </div>
-              <!-- <div class="contenedor-con-operaciones oculto" id="con-operaciones">           
-              <div class="containerrrr">
-                <div class="align-items-start">
-                  <div class="col-3">
-                    <h6>Categoria</h6>
-                  </div> 
-                  <div class="col-2">
-                    <h6>Fecha</h6>
-                  </div>
-                  <div class="col-2">
-                    <h6>Monto</h6>
-                  </div>
-                  <div class="col-2">
-                   <h6 class="">Acciones</h6> 
-                  </div>
-                </div> -->
-              <div class="operaciones-columna oculto" id="operaciones">
+               <div class="todo oculto">
+           <div class="oculto col-8 caja-titulos-operaciones " style="background-color: rgb(255, 255, 255);">
+              <div class="col-3">
+                <h1 class="has-text-weight-medium">Descripción</h1> 
+               </div>
+              <div class="col-3">
+                <h6 class="has-text-weight-medium">Categoria</h6>
+              </div> 
+              <div class="col-2">
+                <h6 class="has-text-weight-medium" >Fecha</h6>
+              </div>
+              <div class="col-2">
+                <h6 class="has-text-weight-medium" >Monto</h6>
+              </div>
+              <div class="col-3">
+               <h6 class="has-text-weight-medium">Acciones</h6> 
+              </div>
+            </div> 
+          
+                <div class="col-12 operaciones-columna oculto " id="operaciones-finales">
+
                 <!-- div vacio para que se vaya mostrando la soperaciones guardadas en js dentro del array operaciones -->
+
+
+
+
+           </div>
+</div>
+
               </div>
             </div>
           </div>
@@ -201,14 +214,16 @@
           <div class=" col-8 caja-compartida" style="background-color: rgb(255, 255, 255);">
             <div class="contenedor-con-operaciones " id="">
               <p class="subtitle is-5">Nueva operación</p>
-              <h2>Descripcion</h2>
-              <input class="input is-link" type="text">
-              <h2>Monto</h2>
-              <input class="input is-link" type="number">
-
-              <h2>Tipo</h2>
+              <label for="input-descripcion">Descripcion</label>
+              <form action="">
+              <input class="input is-link" type="text" id="input-descripcion" >
+             </form>
+              <label for="input-monto"> Monto</label>
+            </form>
+              <input class="input is-link" type="number" id="input-monto">
+              <label >Tipo</label>
               <div class="select is-link contenedor-filtros">
-                <select class="contenedor-filtros">
+                <select class="contenedor-filtros " id="tipo">
                   <option>Gasto</option>
                   <option>Ganancia</option>
                 </select>
@@ -216,7 +231,7 @@
               <div>
                 <h6>Categoria</h6>
                 <div class="select is-info col-12">
-                  <select class="col-sm-12">
+                  <select class="col-12" id="categoria">
                     <option>Comidas</option>
                     <option>Servicios</option>
                     <option>Salidas</option>
@@ -233,13 +248,13 @@
                 </div>
                 <div class="buttons">
                   <button class="button">Cancelar</button>
-                  <button class="button is-success">Agregar</button>
+                  <button class="button is-success" id="btn-agregar" >Agregar</button>
                 </div>
               </div>
             </div>
       </section>
       <!---------------- SECCION CATEGORIAS--------------------->
-      <section class=" container seccion mt-5 categorias oculto" id="categorias">
+      <section class="container seccion mt-5 categorias oculto" id="categorias">
         <div class=" row contenedor-compartido ">
           <div class=" col-8 caja-compartida" style="background-color: rgb(255, 255, 255);">
             <p class="title is-3">Categorias</p>
@@ -260,13 +275,24 @@
       <!----------- SECCION reportes----------- -->
       <section class=" container section mt-5 oculto" id="reportes">
         <div class="row  contenedor-compartido">
-          <div class=" col-8 caja-compartida " style="background-color: rgb(250, 250, 250);">
+          <div class=" col-8 caja-compartida " style="background-color: rgb(255, 254, 254);">
+            <div style="background-color: #ffffff; ">
             <h1 class="title">Reportes</h1>
-            <div class="interior-reportes col-sm-10" style="background-color: rgb(255, 255, 255); ">
+            <div class="interior-reportes col-sm-10 " style="background-color: rgb(252, 252, 252); ">
               <img src="assets/chart (1).svg" alt="">
               <h5 class="title is-5">Operaciones insuficientes</h5>
               <h6 class="subtitle is-6"> Prueba agregando más operaciones</h6>
+
+
+              
             </div>
+            </div>
+            
+<div class="mostrar-reportes">
+<!-- div oculto -->
+
+</div>
+
           </div>
         </div>
       </section>

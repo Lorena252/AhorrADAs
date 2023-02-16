@@ -119,3 +119,30 @@ section {
 .mt-5 {
   margin-top: 0.5rem !important;
 }
+
+.caja-titulos-operaciones{
+ justify-content: space-around;
+  width: 100%;
+ text-align: center;
+  display: flex;
+flex-direction: row;
+}
+#operaciones-finales{
+flex-direction: column;
+flex-wrap: wrap;
+word-spacing: 25px;
+ padding-left: 15px;
+
+}
+
+.btn-delete, .btn-editar{
+ border: none;
+  font-size: xx-small;
+  color: blue;
+}
+
+.caja-nueva-operacion{
+  display: flex;
+
+}
+
