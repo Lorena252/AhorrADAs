@@ -1,3 +1,19 @@
+
+
+
+let operacion = [] //mi array de datos//
+
+localStorage.setItem("arrayOperaciones", JSON.stringify(operacion)) //transforma de JS a JSON//
+
+
+window.addEventListener("load", () =>{
+
+  let datosFormatoJSON = localStorage.getItem("operacion")
+  let datosParseadosJavaScrip = JSON.parse(datosFormatoJSON) //transforma de JSON a JS/
+  
+  
+
+
 const btnBalance = document.getElementById("btn-balance");
 const btnCategorias = document.getElementById("btn-categorias");
 const btnReportes = document.getElementById("btn-reportes");
@@ -8,9 +24,18 @@ const btnOperacion = document.getElementById("con-operaciones")
 const seccionOperacion = document.getElementById("con-operaciones-seccion")
 const ocultarFiltros = document.getElementById("ocultar-filtros")
 const  cajaFiltros = document.getElementById("caja-filtros")
-const inputDate = document.getElementById("input-date-uno")
 const $inputDescripcion = document.getElementById("input-descripcion")
-const inputMonto = document.getElementById("input-monto")
+const inputMonto = document.getElementById("input-monto");
+const inputDate = document.getElementById("input-date")
+const inputDateUno = document.querySelector("#date-filter")
+const btnCancelar = document.getElementById("btn-cancelar")
+const form = document.querySelector("form")
+const $operacionesFinales = document.querySelector("#operaciones-finales")
+const btnAgregar = document.querySelector("#btn-agregar")
+const operacionImagen = document.querySelector(".operaciones-imagen")
+const todo = document.querySelector(".todo")
+const btnAgregarCategoria = document.getElementById("agregar-categoria");
+
 
                                         //  BOTONES DE MOSTRAR SECCIONES
 btnBalance.addEventListener("click" , (e) =>{
@@ -39,9 +64,9 @@ btnOperacion.addEventListener("click", (e) =>{
   seccionCategorias.classList.add("oculto");
   seccionBalance.classList.add("oculto");
 })
-                                //ME MUESTRA LA FECHA ACTUAL//
-window.onload = function(){
+ //---------------------- ME MUESTRA LA FECHA ACTUAL---------//
 
+window.onload = function(){
   var fecha = new Date();
   var mes = fecha.getMonth()+1;
   var dia = fecha.getDate();
@@ -52,25 +77,14 @@ window.onload = function(){
   mes="0"+mes
  inputDate.value=ano+"-"+mes+"-"+dia; 
 }
+////////////
 
 
-window.addEventListener("load", () =>{
-
-  const form = document.querySelector("form")
-  const inputDateUno = document.querySelector("#input-date-uno")
-  const $operacionesFinales = document.querySelector("#operaciones-finales")
-  const btnAgregar = document.querySelector("#btn-agregar")
-  const operacionImagen = document.querySelector(".operaciones-imagen")
-  const todo = document.querySelector(".todo")
-
-
-
-  let operacion = [] //mi array de datos//
 
 //BOTON AGREGAR//
   btnAgregar.addEventListener("click", (e) =>{
-  $operacionesFinales.classList.toggle("oculto")
-  todo.classList.toggle("oculto")
+  $operacionesFinales.classList.remove("oculto")
+  todo.classList.remove("oculto")
   operacionImagen.classList.add("oculto")
 
   operacion.push({
@@ -81,18 +95,23 @@ window.addEventListener("load", () =>{
      Categoria: categoria.value, 
      Fecha: inputDate.value 
     });
-    localStorage.setItem("arrayOperaciones", JSON.stringify(operacion));
-
+     localStorage.setItem("arrayOperaciones", JSON.stringify(operacion));
   paint()
   console.log(operacion)
   })
 
+
 //----------------------cierra boton agregar----------//
 
 
-
-
-
+//condicion categoria//
+const nuevaCategoria = document.querySelector("#nueva-categoria")
+const contenedorFiltros = document.querySelectorAll(".contenedor-filtros")
+btnAgregarCategoria.addEventListener("click", (e) =>{
+  let catego = nuevaCategoria.value
+  console.log(catego)
+paint()
+})
 
 
 
@@ -102,7 +121,7 @@ const paint = () =>{
   operacion.forEach(element => {
     $operacionesFinales.innerHTML += `
     <div class="caja-nueva-operacion">
-    <p class="col-10">${element.Descripcion} ${element.Categoria} ${element.Fecha} ${element.Monto}</p> 
+    <p class="col-10">${element.Descripcion} ${element.Categoria} ${element.Fecha} ${element.Monto} </p> 
     <div class ="col-2">
     <button class="btn-editar"> Editar</button> <button class="btn-delete" id=${element.Id}> Eliminar </button> 
     </div>
@@ -115,12 +134,13 @@ const paint = () =>{
 //------------------------------CIERRA PINTAR------------------//
 
  //-----------------------------Evento btn delete// 
-const eventoBtnDelete = () => {
+const eventoBtnDelete = () =>{
   const $btnDelete = document.querySelectorAll(".btn-delete");
 $btnDelete.forEach((btn) =>{
 btn.addEventListener("click", (e) =>{
   let btnId = e.target.id;
-operacion = operacion.filter(operacion => operacion.Id !== btnId);
+operacion = operacion.filter(cadaOperacion => cadaOperacion.Id !== btnId);
+
 paint()
 localStorage.setItem("arrayOperaciones", JSON.stringify(operacion));
 })
@@ -132,48 +152,21 @@ localStorage.setItem("arrayOperaciones", JSON.stringify(operacion));
 
 
 
+//FILTRAR TIPO//
+const filtroTipo = document.getElementById("filtro-tipo")
+filtroTipo.addEventListener("change", (e) =>{
+  const filtrarTodos = operacion.filter(elem => elem.Tipos === "Gasto" || "Ganancia")
+ const filtrarTipoGasto = operacion.filter(elem => elem.Tipos === "Gasto")
+ const filtrarTipoGanancia = operacion.filter(elem => elem.Tipos === "Ganancia")
+
+ 
+});
+
+paint($operacionesFinales, filtroTipo.value)
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//selec tipo//
-  const tipo = document.querySelector("#tipo")
-   tipo.addEventListener("change", (e) =>{
-
-})
-
-//selec categoria// 
-const categoria = document.querySelector("#categoria")
-categoria.addEventListener("change", (e) =>{
-
-})
-
-
-
-
-
-
-
-
-
-
-
-
-//filtrar por fecha mayo o menor lo vimos en clase 15/2//
-
+paint()
 }) //cierra el windows//

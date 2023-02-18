@@ -141,7 +141,8 @@ word-spacing: 25px;
   color: blue;
 }
 
-.caja-nueva-operacion{
+.caja-nueva-operacion, 
+.interior-categorias{
   display: flex;
 
 }
