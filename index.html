@@ -14,7 +14,6 @@
 </head>
 <body>
 
-  <!-- HEADER -->
   <header">
     <nav class="navbar navbar-expand-lg mi-estilo-nav" style="background-color: #39b99e;">
       <div class="container-fluid">
@@ -42,12 +41,10 @@
       </div>
     </nav>
     </header>
-    <!-- SECCION BALANCE -->
     <main>
       <section id="balance" class="container">
         <div class="row">
           <div class="col-sm-12 col-md-4 caja-balance-filtros">
-            <!-- ------------COTENEDOR BALANCE--------- -->
             <div class="row">
               <div class="col-sm-12 ">
                 <div class="contenedor-card">
@@ -64,14 +61,12 @@
                     <div class="caja-total">
                       <p class="is-size-4">Total</p>
                       <div class="has-text-weight-bold">$0</div>
-                    </div>
-                    <!-- <div class="card-body"></div> -->                                                                                                       
+                    </div>                                                                                                  
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- --------------------------CONTENEDOR   FILTROS------------ -->
             <div class="row">
               <div class="col-sm-12">
                 <div class="contenedor-card">
@@ -91,9 +86,9 @@
                           <div>
                             <div class="select is-link contenedor-filtros">
                               <select class="contenedor-filtros" id="filtro-tipo">
-                                <option value="todos">Todos</option>
-                                <option value="gasto">Gasto</option>
-                                <option value="ganancia">Ganancia</option>
+                                <option value="Todos">Todos</option>
+                                <option value="Gasto">Gasto</option>
+                                <option value="Ganancia">Ganancia</option>
                               </select>
                             </div>
                           </div>
@@ -105,7 +100,7 @@
                             <div class="select is-link contenedor-filtros">
                               <select class="contenedor-filtros" id="filtrar-categorias">
                                 <option value="Todas">Todas</option>
-                                <option value="Comida">Comida</option>
+                                <option value="Comidas">Comidas</option>
                                 <option value="Servicios">Servicios</option>
                                 <option value="Salidas">Salidas</option>
                                 <option value="Educacion">Educacion</option>
@@ -149,7 +144,6 @@
               </div>
             </div>
           </div>
-          <!-- ------------------ CONTENEDOR OPERACIONES----------------- -->
           <div class="container" style="background-color:#e5e4e9;">
             <div class="col-sm-12 col-md-10 caja-operaciones "
               style="background-color: rgb(255, 255, 255); height: 470px; border-radius: 5px;">
@@ -209,27 +203,24 @@
           </div>
         </div>
       </section>
-      <!------------------SECCION NUEVA OPERACION-------------- -->
       <section class="  oculto container  section mt-5" id="con-operaciones-seccion">
         <div class="row contenedor-compartido">
           <div class=" col-8 caja-compartida" style="background-color: rgb(255, 255, 255);">
             <div class="contenedor-con-operaciones " id="">
-              <p class="subtitle is-5">Nueva operación</p>
-              <label for="input-descripcion">Descripcion</label>
-              <form >
-              <input class="input is-link" type="text" id="input-descripcion" >
-             <!-- </form> -->
-              <label for="input-monto"> Monto</label>
-            </form>
-              <input class="input is-link" type="number" id="input-monto">
-              <label >Tipo</label>
-              <div class="select is-link contenedor-filtros">
+               <form id="Form-submit">
+               <p class="subtitle is-5">Nueva operación</p>
+               <label for="input-descripcion">Descripcion</label>
+               <input class="input is-link" type="text" id="input-descripcion" >
+                <label for="input-monto"> Monto</label>        
+                <input class="input is-link" type="number" id="input-monto">
+               <label >Tipo</label>
+               <div class="select is-link contenedor-filtros">
                 <select class="contenedor-filtros " id="tipo">
                   <option >Gasto</option>
                   <option >Ganancia</option>
-                </select>
-              </div>
-              <div>
+                 </select>
+               </div>
+               <div>
                 <h6>Categoria</h6>
                 <div class="select is-info col-12">
                   <select class="col-12" id="categoria">
@@ -240,21 +231,19 @@
                     <option>Transporte</option>
                     <option>Trabajo</option>
                   </select>
-                </div>
-                <div class="col-sm-12">
-                  <h6>Fecha</h6>
-                  <form>
-                    <input id="input-date" class="input is-link" type="date" placeholder="Link input">
-                  </form>
-                </div>
-                <div class="buttons">
+                 </div>
+                 <div class="col-sm-12">
+                  <h6>Fecha</h6>                
+                    <input id="input-date" class="input is-link" type="date" placeholder="Link input">           
+                  </div>
+                 <div class="buttons">
                   <button class="button" id="btn-cancelar">Cancelar</button>
-                  <button class="button is-success" id="btn-agregar" >Agregar</button>
+                   <button class="button is-success" id="btn-agregar" >Agregar</button>
+                  </div>
                 </div>
-              </div>
-            </div>
+                </div>
+          </form>
       </section>
-      <!---------------- SECCION CATEGORIAS--------------------->
       <section class="container seccion mt-5 categorias oculto" id="categorias">
         <div class=" row contenedor-compartido ">
           <div class=" col-8 caja-compartida" style="background-color: rgb(255, 255, 255);">
@@ -268,83 +257,12 @@
             </div>
               <button class="button is-success" id="agregar-categoria">Agregar</button>
             </div>
-
-
  <div class="mt-6  caja-contenedora-categorias "  style="background-color: #ffffff;"  >
-   
-   <div class=" mt-3" style="background-color: rgb(255, 255, 255); display: flex;" >
-     <div class="column">
-     <span class="has-background-primary-dark has-text-primary-light	" >Comida</span>
-      </div> 
-      <div>
-      <a href="#" class="is-size-7 delete-link">Eliminar</a>
-      <a href="#" class="is-size-7 delete-link">Eliminar</a>
-      </div>
-   </div>
-
-
-   <div class="mt-3 interior-categorias" style="background-color: rgb(255, 254, 255);">
-     <div class="column">
-    <span class="has-background-primary-dark has-text-primary-light	  ">Servicios</span>
-    </div>
-     <div>
-    <a href="#" class="is-size-7 delete-link">Eliminar</a>
-    <a href="#" class="is-size-7 delete-link">Eliminar</a>
-    </div>
-  </div>
-
-
-  <div class="mt-3 interior-categorias" style="background-color: rgb(255, 255, 255);">
-    <div class="column">
-     <span class="has-background-primary-dark has-text-primary-light	">Salidas</span>
-     </div>
-     <div>
-       <a href="#" class="is-size-7 delete-link">Eliminar</a>
-      <a href="#" class="is-size-7 delete-link">Eliminar</a>
-     </div>
- </div>
-  
- <div class="mt-3  interior-categorias " style="background-color: rgb(255, 255, 255); ">
-    <div class="column">
-    <span class="has-background-primary-dark has-text-primary-light	">Educacion</span>
-    </div>
-    <div>
-    <a href="#" class="is-size-7 delete-link">Eliminar</a>
-    <a href="#" class="is-size-7 delete-link">Eliminar</a>
-    </div>
-</div>           
-
-<div class="mt-3   interior-categorias" style="background-color: rgb(255, 255, 255); ">
-  <div class="column">
-   <span class=" has-background-primary-dark has-text-primary-light	">Transporte</span>
-  </div>
-  <div>
-   <a href="#" class="is-size-7 delete-link">Eliminar</a>
-   <a href="#" class="is-size-7 delete-link">Eliminar</a>
-   </div>
-</div>
-
-<div class="mt-3   interior-categorias" style="background-color: rgb(255, 255, 255);  ">
-  <div class="column">
-   <span class="has-background-primary-dark has-text-primary-light	">Trabajo</span>
-   </div>
-   <div>
-     <a href="#" class="is-size-7 delete-link">Eliminar</a>
-    <a href="#" class="is-size-7 delete-link">Eliminar</a>
-   </div>
-</div>
-
-
-
-
-
-
-
+ 
  </div>
           </div>
         </div>   
       </section>
-      <!----------- SECCION reportes----------- -->
       <section class=" container section mt-5 oculto" id="reportes">
         <div class="row  contenedor-compartido">
           <div class=" col-8 caja-compartida " style="background-color: rgb(255, 254, 254);">
@@ -353,15 +271,11 @@
             <div class="interior-reportes col-sm-10 " style="background-color: rgb(252, 252, 252); ">
               <img src="assets/chart (1).svg" alt="">
               <h5 class="title is-5">Operaciones insuficientes</h5>
-              <h6 class="subtitle is-6"> Prueba agregando más operaciones</h6>
-
-
-              
+              <h6 class="subtitle is-6"> Prueba agregando más operaciones</h6> 
             </div>
             </div>
             
 <div class="mostrar-reportes">
-<!-- div oculto -->
 
 </div>
 
