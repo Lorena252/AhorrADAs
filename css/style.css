@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #e5e4e9;
+}
+.oculto {
+  display: none;
+}
+.contenedor-filtros {
+  width: 100%;
+}
+section {
+  padding: 3rem 1.5rem;
+}
+.mi-estilo-nav {
+  height: 14vh;
+}
+.nav-link {
+  color: rgb(255, 245, 245);
+}
+.nav-link:hover {
+  color: white;
+}
+.nav-inferior {
+  justify-content: flex-end;
+}
+.navbar-brand {
+  color: white;
+  padding: 10px 20px 10px 5px;
+  border-radius: 5px;
+  font-size: xx-large;
+}
+.fa-solid {
+  margin-top: 10px;
+  margin-right: 9px;
+}
+.navbar-brand:hover,
+.nav-link:hover {
+  background-color: #23977e;
+}
+.contenedor-card {
+  align-items: center;
+  margin-left: 60px;
+  margin-bottom: 10px;
+}
+.columna {
+  display: flex;
+  justify-content: space-between;
+}
+.titulo-operaciones {
+  margin-left: 14px;
+}
+.titulo-balance,
+.titulo-filtros {
+  font-weight: 700;
+  font-size: x-large;
+}
+.titulo-balance {
+  margin: 15px;
+}
+.caja-ganancias,
+.caja-gastos,
+.caja-total {
+  display: flex;
+  margin: 15px;
+  justify-content: space-between;
+}
+.parte-superior-filtros {
+  margin: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+.columna {
+  display: flex;
+  padding-top: 15px;
+}
+.button-operacion {
+  padding: 10px 15px;
+}
+.caja-interior {
+  display: block;
+  justify-content: center;
+  text-align: center;
+  margin-top: 80px;
+}
+.imagen-billetera {
+  max-width: 300px;
+  margin: 0 auto;
+}
+.buttons {
+  margin-top: 20px;
+  justify-content: flex-end;
+}
+#categorias {
+  justify-content: center;
+  margin-top: 50px;
+}
+.los-dos {
+  display: flex;
+  justify-content: space-between;
+}
+.caja-compartida {
+  height: 70vh;
+}
+.contenedor-compartido {
+  display: flex;
+  justify-content: center;
+}
+.interior-reportes {
+  width: 50%;
+  margin-left: 25vh;
+  text-align: center;
+}
+.container {
+  margin: 0 auto;
+}
+.mt-5 {
+  margin-top: 0.5rem !important;
+}
+
+.caja-titulos-operaciones{
+ justify-content: space-around;
+  width: 100%;
+ text-align: center;
+  display: flex;
+flex-direction: row;
+}
+#operaciones-finales{
+flex-direction: column;
+flex-wrap: wrap;
+word-spacing: 25px;
+ padding-left: 15px;
+
+}
+
+.btn-delete, .btn-editar{
+ border: none;
+  font-size: xx-small;
+  color: blue;
+}
+
+.caja-nueva-operacion, 
+.interior-categorias{
+  display: flex;
+
+}
