@@ -22,6 +22,9 @@ const seccionCategorias = document.getElementById("categorias");
  const todo = document.querySelector(".todo")
  const btnAgregarCategoria = document.getElementById("agregar-categoria");
  const btnEliminarCategoria = document.querySelectorAll(".eliminarCategoria")
+ const ordenarPor = document.querySelectorAll("#filtros")
+ const tipo = document.querySelectorAll("#tipo")
+ const categoria = document.querySelectorAll("#categoria")
                                         //  BOTONES DE MOSTRAR SECCIONES
  btnBalance.addEventListener("click" , (e) =>{
   seccionCategorias.classList.add("oculto");
@@ -53,7 +56,8 @@ const seccionCategorias = document.getElementById("categorias");
 
 
  window.addEventListener("load", () =>{
-  let operacion = [] 
+  let operacion = []
+
    localStorage.setItem("arrayOperaciones", JSON.stringify(operacion));
    const fechaActual = () =>{
     var fecha = new Date();
@@ -65,7 +69,7 @@ const seccionCategorias = document.getElementById("categorias");
     if(mes<10)
     mes="0"+mes
  inputDate.value=ano+"-"+mes+"-"+dia;
- } 
+ }
 fechaActual()
 
 
@@ -80,11 +84,11 @@ fechaActual()
     Monto: inputMonto.value,
     Tipos: tipo.value,
      Categoria: categoria.value,
-     Fecha: inputDate.value
+     Fecha: inputDate.value,
     });
    localStorage.setItem("arrayOperaciones", JSON.stringify(operacion ));
    paint()
-
+console.log(operacion.Categoria)
   })
   //----------------------cierra boton agregar----------//
 
@@ -96,7 +100,7 @@ fechaActual()
    operacion.forEach(element => {
     $operacionesFinales.innerHTML += `
     <div class="caja-nueva-operacion">
-    <p class="col-10">${element.Descripcion} ${element.Categoria } ${element.Fecha}  ${element.Tipos == "Gasto" ? "-" : "+"}${element.Monto} </p>
+    <p class="col-10">${element.Descripcion} ${element.Categoria} ${element.Fecha}  ${element.Tipos == "Gasto" ? "-" : "+"}${element.Monto} </p>
     <div class ="col-2">
     <button class="btn-editar"> Editar</button> <button class="btn-delete" id=${element.Id}> Eliminar </button>
     </div>
@@ -119,7 +123,7 @@ fechaActual()
     })
    })
   }
-    
+
 
   const $filtroTipo = document.getElementById("filtro-tipo")
   let filtrarTipo = []
@@ -134,6 +138,7 @@ fechaActual()
 
  const filtrarCategorias = document.getElementById("filtrar-categorias")
 let filtro = []
+
  filtrarCategorias.addEventListener("change", (e) =>{
 const filtrarCadaCategoria = operacion.filter(elem => elem.Categoria === filtrarCategorias.value)
 filtro.push(filtrarCadaCategoria)
@@ -145,146 +150,86 @@ let dondePintar = document.querySelector(".caja-contenedora-categorias")
 const nuevaCategoria = document.querySelector("#nueva-categoria")
 const contenedorFiltros = document.querySelectorAll(".contenedor-filtros")
 
- btnCategorias.addEventListener("click" , (e) =>{
-  dondePintar.innerHTML =`
-  <div class="mt-3 interior-categorias" style="background-color: rgb(255, 254, 255);">
+     let catego = []
+   let tiposCate = []
+
+
+ btnAgregarCategoria.addEventListener("click", (e) =>{
+   dondePintar.innerHTML = 
+   `<div class="mt-3 interior-categorias" style="background-color: rgb(255, 254, 255);">
+   <div class="column">
+  <span class="has-background-primary-dark has-text-primary-light">Todos</span>
+  </div>
+   <div>
+  <button class="is-size-7 delete-link">Editar</button>
+  <button class="is-size-7 delete-link">Eliminar</button>
+  </div>
+ </div>
+ 
+ <div class="mt-3 interior-categorias" style="background-color: rgb(255, 255, 255);">
   <div class="column">
- <span class="has-background-primary-dark has-text-primary-light">Servicios</span>
+   <span class="has-background-primary-dark has-text-primary-light	">Comida</span>
+   </div>
+   <div>
+     <button class="is-size-7 delete-link">Editar</button>
+    <button class="is-size-7 delete-link">Eliminar</button>
+   </div>
  </div>
-  <div>
- <button class="is-size-7 delete-link">Editar</button>
- <button class="is-size-7 delete-link">Eliminar</button>
- </div>
-</div>
-
-<div class="mt-3 interior-categorias" style="background-color: rgb(255, 255, 255);">
- <div class="column">
-  <span class="has-background-primary-dark has-text-primary-light	">Salidas</span>
+ 
+ <div class="mt-3  interior-categorias " style="background-color: rgb(255, 255, 255); ">
+  <div class="column">
+  <span class="has-background-primary-dark has-text-primary-light	">Educacion</span>
   </div>
   <div>
-    <button class="is-size-7 delete-link">Editar</button>
-   <button class="is-size-7 delete-link">Eliminar</button>
+  <button class="is-size-7 delete-link">Editar</button>
+  <button class="is-size-7 delete-link">Eliminar</button>
   </div>
-</div>
-
-<div class="mt-3  interior-categorias " style="background-color: rgb(255, 255, 255); ">
+ </div>
+ 
+ <div class="mt-3   interior-categorias" style="background-color: rgb(255, 255, 255); ">
  <div class="column">
- <span class="has-background-primary-dark has-text-primary-light	">Educacion</span>
+ <span class=" has-background-primary-dark has-text-primary-light	">Transporte</span>
  </div>
  <div>
  <button class="is-size-7 delete-link">Editar</button>
  <button class="is-size-7 delete-link">Eliminar</button>
  </div>
-</div>           
-
-<div class="mt-3   interior-categorias" style="background-color: rgb(255, 255, 255); ">
-<div class="column">
-<span class=" has-background-primary-dark has-text-primary-light	">Transporte</span>
-</div>
-<div>
-<button class="is-size-7 delete-link">Editar</button>
-<button class="is-size-7 delete-link">Eliminar</button>
-</div>
-</div>
-
-<div class="mt-3   interior-categorias" style="background-color: rgb(255, 255, 255);  ">
-<div class="column">
-<span class="has-background-primary-dark has-text-primary-light	">Trabajo</span>
-</div>
-<div>
-  <button class="is-size-7 delete-link" >Editar</button>
- <button class="is-size-7 delete-link" class= "eliminarCategoria">Eliminar</button>
-</div>
-</div>
+ </div>
+ 
+ <div class="mt-3   interior-categorias" style="background-color: rgb(255, 255, 255);  ">
+ <div class="column">
+ <span class="has-background-primary-dark has-text-primary-light	">Trabajo</span>
+ </div>
+ <div>
+   <button class="is-size-7 delete-link" >Editar</button>
+  <button class="is-size-7 delete-link" class= "eliminarCategoria">Eliminar</button>
+ </div>
+ </div>
 `
-})
-
-   let catego = []
- btnAgregarCategoria.addEventListener("click", (e) =>{
  catego.push({
   Id:crypto.randomUUID(),
    Categoria: nuevaCategoria.value
   })
- dondePintar.innerHTML = ""
   catego.forEach(element => {
-  dondePintar.innerHTML += ` 
- 
-  <div class="mt-3 interior-categorias" style="background-color: rgb(255, 254, 255);">
-  <div class="column">
- <span class="has-background-primary-dark has-text-primary-light">Servicios</span>
- </div>
-  <div>
- <button class="is-size-7 delete-link">Editar</button>
- <button class="is-size-7 delete-link">Eliminar</button>
- </div>
-</div>
-
-<div class="mt-3 interior-categorias" style="background-color: rgb(255, 255, 255);">
- <div class="column">
-  <span class="has-background-primary-dark has-text-primary-light	">Salidas</span>
-  </div>
-  <div>
-    <button class="is-size-7 delete-link">Editar</button>
-   <button class="is-size-7 delete-link">Eliminar</button>
-  </div>
-</div>
-
-<div class="mt-3  interior-categorias " style="background-color: rgb(255, 255, 255); ">
- <div class="column">
- <span class="has-background-primary-dark has-text-primary-light	">Educacion</span>
- </div>
- <div>
- <button class="is-size-7 delete-link">Editar</button>
- <button class="is-size-7 delete-link">Eliminar</button>
- </div>
-</div>           
-
-<div class="mt-3   interior-categorias" style="background-color: rgb(255, 255, 255); ">
-<div class="column">
-<span class=" has-background-primary-dark has-text-primary-light	">Transporte</span>
-</div>
-<div>
-<button class="is-size-7 delete-link">Editar</button>
-<button class="is-size-7 delete-link">Eliminar</button>
-</div>
-</div>
-
-<div class="mt-3   interior-categorias" style="background-color: rgb(255, 255, 255);  ">
-<div class="column">
-<span class="has-background-primary-dark has-text-primary-light	">Trabajo</span>
-</div>
-<div>
-  <button class="is-size-7 delete-link" >Editar</button>
- <button class="is-size-7 delete-link" class= "eliminarCategoria">Eliminar</button>
-</div>
-</div>
-   
+  dondePintar.innerHTML += `
   <div class=" mt-3" style="background-color: rgb(255, 255, 255); display: flex;" >
     <div class="column">
     <span class="has-background-primary-dark has-text-primary-light	" > ${element.Categoria}</span>
-     </div> 
+     </div>
      <div>
      <button class="is-size-7 delete-link">Editar</button>
      <button class="is-size-7 delete-link">Eliminar</button>
      </div>
   </div>
-
 `
 });
+tiposCate.push({
+  Id:crypto.randomUUID(),
+   Tipo: nuevaCategoria.value
   })
-
+filtrarCategorias.innerHTML +=  `<option> ${nuevaCategoria.value}</option>`
+  })
 paint()
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -294,3 +239,4 @@ paint()
 
  paint()
 }) //cierra el windows//
+
