@@ -24,7 +24,12 @@ const seccionCategorias = document.getElementById("categorias");
  const btnEliminarCategoria = document.querySelectorAll(".eliminarCategoria")
  const ordenarPor = document.querySelectorAll("#filtros")
  const tipo = document.querySelectorAll("#tipo")
- const categoria = document.querySelectorAll("#categoria")
+ const categoria = document.getElementById("categoria-operacion")
+const dondePintar = document.querySelector(".caja-contenedora-categorias")
+ const nuevaCategoria = document.querySelector("#nueva-categoria")
+ const contenedorFiltros = document.querySelectorAll(".contenedor-filtros")
+const filtroTipo = document.querySelectorAll("filtro-tipo")
+
                                         //  BOTONES DE MOSTRAR SECCIONES
  btnBalance.addEventListener("click" , (e) =>{
   seccionCategorias.classList.add("oculto");
@@ -37,6 +42,7 @@ const seccionCategorias = document.getElementById("categorias");
   seccionBalance.classList.add("oculto");
   seccionReportes.classList.add("oculto");
   seccionOperacion.classList.add("oculto")
+
  })
 
  btnReportes.addEventListener("click" , (e) =>{
@@ -57,6 +63,8 @@ const seccionCategorias = document.getElementById("categorias");
 
  window.addEventListener("load", () =>{
   let operacion = []
+  let catego = []
+  let tiposCate = []
 
    localStorage.setItem("arrayOperaciones", JSON.stringify(operacion));
    const fechaActual = () =>{
@@ -85,13 +93,155 @@ fechaActual()
     Tipos: tipo.value,
      Categoria: categoria.value,
      Fecha: inputDate.value,
-    });
+    }); 
+    console.log(operacion)
    localStorage.setItem("arrayOperaciones", JSON.stringify(operacion ));
    paint()
-console.log(operacion.Categoria)
   })
   //----------------------cierra boton agregar----------//
 
+btnCategorias.addEventListener("click", (e) =>{
+  dondePintar.innerHTML = 
+  `<div class="mt-3 interior-categorias" style="background-color: rgb(255, 254, 255);">
+  <div class="column">
+ <span class="has-background-primary-dark has-text-primary-light">Todos</span>
+ </div>
+  <div>
+ <button class="is-size-7 delete-link">Editar</button>
+ <button class=" eliminar-categoria   is-size-7 delete-link "  id = ${catego.Id}>Eliminar</button>
+ </div>
+</div>
+
+<div class="mt-3 interior-categorias" style="background-color: rgb(255, 255, 255);">
+ <div class="column">
+  <span class="has-background-primary-dark has-text-primary-light	">Comida</span>
+  </div>
+  <div>
+    <button class="is-size-7 delete-link">Editar</button>
+   <button class=" eliminar-categoria   is-size-7 delete-link" id = ${catego.Id}>Eliminar</button>
+  </div>
+</div>
+
+<div class="mt-3  interior-categorias " style="background-color: rgb(255, 255, 255); ">
+ <div class="column">
+ <span class="has-background-primary-dark has-text-primary-light	">Educacion</span>
+ </div>
+ <div>
+ <button class="is-size-7 delete-link">Editar</button>
+ <button class=" eliminar-categoria   is-size-7 delete-link"id = ${catego.Id} >Eliminar</button>
+ </div>
+</div>
+
+<div class="mt-3   interior-categorias" style="background-color: rgb(255, 255, 255); ">
+<div class="column">
+<span class=" has-background-primary-dark has-text-primary-light	">Transporte</span>
+</div>
+<div>
+<button class="is-size-7 delete-link">Editar</button>
+<button class="eliminar-categoria  is-size-7 delete-link" id = ${catego.Id} >Eliminar</button>
+</div>
+</div>
+
+<div class="mt-3   interior-categorias" style="background-color: rgb(255, 255, 255);  ">
+<div class="column">
+<span class="has-background-primary-dark has-text-primary-light	">Trabajo</span>
+</div>
+<div>
+  <button class="is-size-7 delete-link" >Editar</button>
+ <button class="eliminar-categoria is-size-7 delete-link "  id= ${catego.Id}>Eliminar</button>
+</div>
+</div>
+`
+})
+
+ 
+
+
+  btnAgregarCategoria.addEventListener("click", (e) =>{
+    catego.push({
+      Id: crypto.randomUUID(),
+       Categoria: nuevaCategoria.value,
+      });
+
+    
+ dondePintar.innerHTML = 
+    `<div class="mt-3 interior-categorias" style="background-color: rgb(255, 254, 255);">
+    <div class="column">
+   <span class="has-background-primary-dark has-text-primary-light">Todos</span>
+   </div>
+    <div>
+   <button class="is-size-7 delete-link">Editar</button>
+   <button class=" eliminar-categoria   is-size-7 delete-link" ${catego.Id} >Eliminar</button>
+   </div>
+  </div>
+  
+  <div class="mt-3 interior-categorias" style="background-color: rgb(255, 255, 255);">
+   <div class="column">
+    <span class="has-background-primary-dark has-text-primary-light	">Comida</span>
+    </div>
+    <div>
+      <button class="is-size-7 delete-link">Editar</button>
+     <button class=" eliminar-categoria   is-size-7 delete-link" ${catego.Id} >Eliminar</button>
+    </div>
+  </div>
+  
+  <div class="mt-3  interior-categorias " style="background-color: rgb(255, 255, 255); ">
+   <div class="column">
+   <span class="has-background-primary-dark has-text-primary-light	">Educacion</span>
+   </div>
+   <div>
+   <button class="is-size-7 delete-link">Editar</button>
+   <button class=" eliminar-categoria   is-size-7 delete-link"${catego.Id} >Eliminar</button>
+   </div>
+  </div>
+  
+  <div class="mt-3   interior-categorias" style="background-color: rgb(255, 255, 255); ">
+  <div class="column">
+  <span class=" has-background-primary-dark has-text-primary-light" ${catego.Id}	">Transporte</span>
+  </div>
+  <div>
+  <button class="is-size-7 delete-link">Editar</button>
+  <button class="eliminar-categoria  is-size-7 delete-link" ${catego.Id}>Eliminar</button>
+  </div>
+  </div>
+  
+  <div class="mt-3   interior-categorias" style="background-color: rgb(255, 255, 255);  ">
+  <div class="column">
+  <span class="has-background-primary-dark has-text-primary-light	">Trabajo</span>
+  </div>
+  <div>
+    <button class="is-size-7 delete-link" >Editar</button>
+   <button class="eliminar-categoria is-size-7 delete-link "  id= ${catego.Id}>Eliminar</button>
+  </div>
+  </div>
+ `
+ 
+   catego.forEach(catego => {
+   dondePintar.innerHTML += `
+   <div class=" mt-3" style="background-color: rgb(255, 255, 255); display: flex;" >
+     <div class="column">
+     <span class="has-background-primary-dark has-text-primary-light	" >${catego.Categoria}</span>
+      </div>
+      <div>
+      <button class="is-size-7  delete-link"  >Editar</button>
+       <button class="is-size-7 delete-link  eliminar-categoria" id = ${catego.Id}>Eliminar</button>
+      </div>
+   </div>
+ `
+ }); 
+
+    localStorage.setItem("arrayCategorias" , JSON.stringify(catego));
+
+//nueva categoria en input//
+ tiposCate.push({
+   Id:crypto.randomUUID(),
+    Tipo: nuevaCategoria.value,
+   });
+ filtrarCategorias.innerHTML +=  `<option value= "${nuevaCategoria.value}"> ${nuevaCategoria.value}</option>`
+ categoria.innerHTML += `<option value= "${nuevaCategoria.value}"> ${nuevaCategoria.value}</option>`
+  paint()
+
+   })
 
 
  // ---------------------------------PINTAR-----------------
@@ -107,10 +257,13 @@ console.log(operacion.Categoria)
     </div>
     `;
    });
+   
    eventoBtnDelete()
+   deleteCategoria()
 
   };
   localStorage.setItem("arrayOperaciones" , JSON.stringify(operacion ));
+     localStorage.setItem("arrayCategorias" , JSON.stringify(catego));
 
   const eventoBtnDelete = () =>{
    const $btnDelete = document.querySelectorAll(".btn-delete");
@@ -125,6 +278,19 @@ console.log(operacion.Categoria)
   }
 
 
+const deleteCategoria = () =>{
+  const btnDeleteCategoria = document.querySelectorAll(".eliminar-categoria");
+ btnDeleteCategoria.forEach((btnCategoria) =>{
+ btnCategoria.addEventListener("click", (e) =>{
+ let btnIdCategoria = e.target.id;
+  catego = catego.filter(cadaCatego=> cadaCatego.Id !== btnIdCategoria);
+paint()
+  localStorage.setItem("arrayCategorias" , JSON.stringify(catego));
+
+  })
+ })
+}
+
   const $filtroTipo = document.getElementById("filtro-tipo")
   let filtrarTipo = []
   $filtroTipo.addEventListener("change", (e) =>{
@@ -135,7 +301,6 @@ console.log(operacion.Categoria)
   });
 
 
-
  const filtrarCategorias = document.getElementById("filtrar-categorias")
 let filtro = []
 
@@ -143,100 +308,11 @@ let filtro = []
 const filtrarCadaCategoria = operacion.filter(elem => elem.Categoria === filtrarCategorias.value)
 filtro.push(filtrarCadaCategoria)
 paint($operacionesFinales,filtrarCadaCategoria)
+console.log(filtrarCadaCategoria)
  })
-
-
-let dondePintar = document.querySelector(".caja-contenedora-categorias")
-const nuevaCategoria = document.querySelector("#nueva-categoria")
-const contenedorFiltros = document.querySelectorAll(".contenedor-filtros")
-
-     let catego = []
-   let tiposCate = []
-
-
- btnAgregarCategoria.addEventListener("click", (e) =>{
-   dondePintar.innerHTML = 
-   `<div class="mt-3 interior-categorias" style="background-color: rgb(255, 254, 255);">
-   <div class="column">
-  <span class="has-background-primary-dark has-text-primary-light">Todos</span>
-  </div>
-   <div>
-  <button class="is-size-7 delete-link">Editar</button>
-  <button class="is-size-7 delete-link">Eliminar</button>
-  </div>
- </div>
- 
- <div class="mt-3 interior-categorias" style="background-color: rgb(255, 255, 255);">
-  <div class="column">
-   <span class="has-background-primary-dark has-text-primary-light	">Comida</span>
-   </div>
-   <div>
-     <button class="is-size-7 delete-link">Editar</button>
-    <button class="is-size-7 delete-link">Eliminar</button>
-   </div>
- </div>
- 
- <div class="mt-3  interior-categorias " style="background-color: rgb(255, 255, 255); ">
-  <div class="column">
-  <span class="has-background-primary-dark has-text-primary-light	">Educacion</span>
-  </div>
-  <div>
-  <button class="is-size-7 delete-link">Editar</button>
-  <button class="is-size-7 delete-link">Eliminar</button>
-  </div>
- </div>
- 
- <div class="mt-3   interior-categorias" style="background-color: rgb(255, 255, 255); ">
- <div class="column">
- <span class=" has-background-primary-dark has-text-primary-light	">Transporte</span>
- </div>
- <div>
- <button class="is-size-7 delete-link">Editar</button>
- <button class="is-size-7 delete-link">Eliminar</button>
- </div>
- </div>
- 
- <div class="mt-3   interior-categorias" style="background-color: rgb(255, 255, 255);  ">
- <div class="column">
- <span class="has-background-primary-dark has-text-primary-light	">Trabajo</span>
- </div>
- <div>
-   <button class="is-size-7 delete-link" >Editar</button>
-  <button class="is-size-7 delete-link" class= "eliminarCategoria">Eliminar</button>
- </div>
- </div>
-`
- catego.push({
-  Id:crypto.randomUUID(),
-   Categoria: nuevaCategoria.value
-  })
-  catego.forEach(element => {
-  dondePintar.innerHTML += `
-  <div class=" mt-3" style="background-color: rgb(255, 255, 255); display: flex;" >
-    <div class="column">
-    <span class="has-background-primary-dark has-text-primary-light	" > ${element.Categoria}</span>
-     </div>
-     <div>
-     <button class="is-size-7 delete-link">Editar</button>
-     <button class="is-size-7 delete-link">Eliminar</button>
-     </div>
-  </div>
-`
-});
-tiposCate.push({
-  Id:crypto.randomUUID(),
-   Tipo: nuevaCategoria.value
-  })
-filtrarCategorias.innerHTML +=  `<option> ${nuevaCategoria.value}</option>`
-  })
-paint()
-
-
-
-
 
 
 
  paint()
-}) //cierra el windows//
+}) 
 
