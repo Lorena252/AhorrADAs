@@ -52,15 +52,15 @@
                     <h1 class="titulo-balance">Balance</h1>
                     <div class="caja-ganancias">
                       <p class="is-size-6">Ganancias</p>
-                      <div class="has-text-success">+$0</div>
+                      <div class="has-text-success" id="pintar-suma">+0</div>
                     </div>
                     <div class="caja-gastos">
                       <p class="is-size-5" >Gastos</dp>
-                      <div class="has-text-danger">-$0</div>
+                      <div class="has-text-danger" id="pintar-resta">-0</div>
                     </div>
                     <div class="caja-total">
-                      <p class="is-size-4">Total</p>
-                      <div class="has-text-weight-bold">$0</div>
+                      <p class="is-size-4" >Total</p>
+                      <div class="has-text-weight-bold" id="pintar-total">0</div>
                     </div>                                                                                                  
                   </div>
                 </div>
@@ -186,28 +186,28 @@
               <div class="col-3">
                <h6 class="has-text-weight-medium">Acciones</h6> 
               </div>
-            </div> 
-          
+            </div>         
                 <div class="col-12 operaciones-columna oculto " id="operaciones-finales">
 
                 <!-- div vacio para que se vaya mostrando la soperaciones guardadas en js dentro del array operaciones -->
 
 
-
-
            </div>
              </div>
-
               </div>
             </div>
           </div>
         </div>
       </section>
+
+
+
+
       <section class="  oculto container  section mt-5" id="con-operaciones-seccion">
         <div class="row contenedor-compartido">
           <div class=" col-8 caja-compartida" style="background-color: rgb(255, 255, 255);">
             <div class="contenedor-con-operaciones " id="">
-               <form id="Form-submit">
+               <form id="form-submit">
                <h1 class="subtitle is-5">Nueva operación</h1>
                <label for="input-descripcion">Descripcion</label>
                <input class="input is-link" type="text" id="input-descripcion" >
@@ -215,16 +215,15 @@
                 <input class="input is-link" type="number" id="input-monto">
                <label >Tipo</label>
                <div class="select is-link contenedor-filtros">
-                <select class="contenedor-filtros " id="tipo">
-                  <option >Gasto</option>
-                  <option >Ganancia</option>
+                <select class="contenedor-filtros" id="tipo">
+                  <option value="Gasto" >Gasto</option>
+                  <option value="Ganancia">Ganancia</option>
                  </select>
                </div>
                <div>
                 <h6>Categoria</h6>
                 <div class="select is-info col-12">
-                  <select class="col-12" id="categoria-operacion">
-                    <option value="Todas">Todas</option>
+                  <select class="col-12" id="categoria-operacion">             
                     <option value="Comidas">Comidas</option>
                     <option value="Servicios">Servicios</option>
                     <option value="Salidas">Salidas</option>
@@ -284,6 +283,23 @@
           </div>
         </div>
       </section>
+
+      <section class= "container seccion mt-5 oculto"  id="editar-operacion" >
+        <div class="row  contenedor-compartido">
+          <div class=" col-8 caja-compartida " style="background-color: rgb(255, 254, 254);">
+            <div style="background-color: #ffffff; ">
+              <h1 class="title">Editar Operacion</h1>
+                  <div class="mt-6" id="info-editar">
+
+
+                  </div>        
+            </div>
+          </div>
+        </div>
+        </section>
+
+
+
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
